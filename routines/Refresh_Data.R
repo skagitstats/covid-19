@@ -31,15 +31,19 @@ pastData = read_csv("data/skagit_valley_covid_counts.csv",
                                         News = col_character())) 
 
 
+
 newData <- rbind(
   pastData, 
   select(freshdata,
          Date =  DateStamp, 
          Cases = `Positive*`, 
          Deaths = Deaths, 
-         Hospitalized = `Hospitalized**`, 
+         Hospitalized = `Hospitalized**`,
          News))
 
-write_csv(newData, path = "data/skagit_valley_covid_counts.csv")
+newData$county = "Skagit"
+newData$Hospitalized[is.na(newData$Hospitalized)] <- 0 
+newData %>% transmute(Date = as_date(Date), Cases, Deaths, Hospitalized, News, county  ="Skagit") %>% distinct()  %>% 
+write_csv(path = "data/skagit_valley_covid_counts.csv")
 
 

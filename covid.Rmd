@@ -2,15 +2,10 @@
 title: "Covid-19 in Skagit Valley, WA"
 date: "`r Sys.Date()`"
 output:
+  html: 
+    includes: 
+     
   tufte::tufte_html: default
-  tufte::tufte_handout:
-    citation_package: natbib
-    latex_engine: xelatex
-  tufte::tufte_book:
-    citation_package: natbib
-    latex_engine: xelatex
-    includes:
-      in_header: "favicon.html" 
 bibliography: skeleton.bib
 link-citations: yes
 ---
@@ -135,6 +130,7 @@ dat %>% as_tibble() %>%
  - Observable reports where the charts above are generated  
     1. [Skagit Valley Counts](https://observablehq.com/@marshallbrown/covid-19-in-washington-state1)
     2. [Map forked from Jake](https://observablehq.com/@marshallbrown/covid-19-in-washington-state/2) 
+
 
 <script type="module">
 

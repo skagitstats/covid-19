@@ -9,6 +9,8 @@ output:
   tufte::tufte_book:
     citation_package: natbib
     latex_engine: xelatex
+    includes:
+      in_header: "favicon.html" 
 bibliography: skeleton.bib
 link-citations: yes
 ---
@@ -16,9 +18,19 @@ link-citations: yes
 ```{r setup, include=FALSE}
 library(tufte)
 library(knitr)
+library(readr) 
+library(tidyverse)
+library(DT)
+
 
 knitr::opts_chunk$set(echo = FALSE, tidy = FALSE, cache.extra = packageVersion('tufte'))
-options(htmltools.dir.version = FALSE)
+options(htmltools.dir.version = FALSE, warnings = 'hide', messages= 'hide')
+
+
+dat <- read_csv('https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv')
+
+pop <- read_csv("data/populations.csv")
+
 ```
 
 
@@ -35,20 +47,94 @@ options(htmltools.dir.version = FALSE)
 
 ## Washington State
 
-[Jake Low built this](https://observablehq.com/@jake-low/covid-19-in-washington-state) visual with county level data.  I tweaked his code to change up the colors^[I'm sick of red.] and plugged in [data curated by the new york times](https://github.com/nytimes/covid-19-data)^[Their numbers may be a little different/delayed than the ones I collected at Skagit public health].  He also has an interesting visual showing the number of daily tests in WA state, which you should go check out by clicking on Jake's name above. 
+[Jake Low built this](https://observablehq.com/@jake-low/covid-19-in-washington-state) visual with county level data. 
+
+I tweaked his code to change up the colors^[I'm sick of red.] and plugged in [ data curated by the new york times](https://github.com/nytimes/covid-19-data)^[The numbers are little different than reported from Skagit public health. Counting is hard.], which looks like they collect from the [Washington State Department of Health](https://www.doh.wa.gov/emergencies/coronavirus). 
+
+
+The heatmap shows cases per capita, which is also included in the table below. 
+
+
 
 <div id="chart" style="max-width:1000px"></div>
 
 
+ 
 
-The heatmap shows cases per capita, which I also include as a table below. 
+```{r, messages = 'hide'}
+
+
+dat %>% as_tibble() %>% 
+  filter(state =="Washington") %>% 
+  group_by(county) %>% 
+  summarise(Cases = max(cases), 
+            Deaths = max(deaths)) %>% 
+  left_join(pop, by = c("county" = "County")) %>% 
+  mutate('Cases per 100K' = round((Cases/Population)*100000), 
+         'Deaths per 100K' = round((Deaths/Population)*100000)) %>% 
+  transmute(County = county, 
+         'Total Cases' = scales::comma(Cases), 
+         `Cases per 100K`, 
+         'Total Deaths' = scales::comma(Deaths), 
+         `Deaths per 100K`, 
+         Population = scales::comma(Population)
+         ) %>% 
+  datatable(width = '80%', 
+            rownames= FALSE, 
+            options = list(scrollX = TRUE,
+                           order = list(list(2, 'desc')), 
+                           dom = 'ftp', 
+                           pageLength = 10))
+
+```
+
 
 ## Other Resources 
 
+### Dashboards 
+
+- [Washington State Department of Health](https://www.doh.wa.gov/emergencies/coronavirus). Includes data on testing. 
+
+- [United States COVID-19 Tracker](https://schnerd.github.io/us-covid-dashboard/). Very effective dashboard to compare US states. 
+
+- [Worldwide cases](https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6) from Johns Hopkins. 
+
+- [Genomic epidemiology of novel coronavirus at nextstrain](https://nextstrain.org/ncov). Science! 
 
 
+### Blogs
 
+ - [Tracking covid-19 from the financial times](https://www.ft.com/coronavirus-latest): Great article with lots of world wide data updated daily.  
 
+ - [What makes forecasting COVID-19 hard?](https://robjhyndman.com/hyndsight/forecasting-covid19/)
+
+ - [Sex, gender and COVID-19: Disaggregated data and health disparities](https://blogs.bmj.com/bmjgh/2020/03/24/sex-gender-and-covid-19-disaggregated-data-and-health-disparities/)
+
+ - Trevor Bedfords blog: Latest post is [Cryptic transmission of novel coronavirus revealed by genomic epidemiology](https://bedford.io/blog/). [His twitter](https://twitter.com/trvrb) is a great resource as well.   
+ 
+
+### Videos 
+ 
+- [How To Tell If We're Beating COVID-19 by minutephysics](https://www.youtube.com/watch?v=54XLXg4fYsc)
+   - [Interactive dashboard that replicates the one in the video.](https://observablehq.com/@yy/covid-19-confirmed-vs-new-cases) 
+
+- [Simulating and Epidemic](https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw) and [Exponential Growth and Epidemics](https://www.youtube.com/watch?v=Kas0tIxDvrg) by 3Blue1Brown are great. 
+ 
+- [March 19 Interview with David Ho about testing](https://www.youtube.com/watch?v=2B-rYVWmqoI) : Dr. David Ho is Leading Four Research Teams to Find a Coronavirus Treatment | Amanpour and Company
+
+- [PBS newshour](https://www.pbs.org/newshour/health/watch-live-confronting-coronavirus-a-pbs-newshour-special) 
+
+- [Bill Gates outlines what he thinks world is learning about pandemics](https://www.youtube.com/watch?v=iNLiUN0l7ws)
+
+- [Battling Coronavirus Inside a N.Y.C. Hospital | NYT News](https://www.youtube.com/watch?v=bE68xVXf8Kw)
+
+### Other 
+
+ - [Github repo for this site](https://github.com/skagitstats/covid-19) 
+
+ - Observable reports where the charts above are generated  
+    1. [Skagit Valley Counts](https://observablehq.com/@marshallbrown/covid-19-in-washington-state1)
+    2. [Map forked from Jake](https://observablehq.com/@marshallbrown/covid-19-in-washington-state/2) 
 
 <script type="module">
 

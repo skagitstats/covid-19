@@ -1,6 +1,6 @@
 ---
-title: "Covid-19 in Skagit Valley, WA"
-date: "`r Sys.Date()`"
+title: "Skagit Life"
+subtitle: "a website"
 output:
   tufte::tufte_html: default
   tufte::tufte_handout:
@@ -15,86 +15,11 @@ link-citations: yes
 
 ```{r setup, include=FALSE}
 library(tufte)
-library(knitr)
-
-knitr::opts_chunk$set(echo = FALSE, tidy = FALSE, cache.extra = packageVersion('tufte'))
+# invalidate cache when the tufte version changes
+knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tufte'))
 options(htmltools.dir.version = FALSE)
 ```
 
+# links 
 
-## 
-
-`r newthought('Total daily counts')` of covid-19 cases, hospitalizations and deaths reported by [Skagit Public Health](https://www.skagitcounty.net/Departments/HealthDiseases/coronavirus.htm). 
-
-
-<div id="skagitCaseChart" style="max-width:700px" ></div>
-
-<div id="SkagitHospitalChart" style="max-width:700px"></div>
-
-<div id="SkagitDeathChart" style="max-width:700px"></div>
-
-## Washington State
-
-[Jake Low built this](https://observablehq.com/@jake-low/covid-19-in-washington-state) visual with county level data.  I tweaked his code to change up the colors^[I'm sick of red.] and plugged in [data curated by the new york times](https://github.com/nytimes/covid-19-data)^[Their numbers may be a little different/delayed than the ones I collected at Skagit public health].  He also has an interesting visual showing the number of daily tests in WA state, which you should go check out by clicking on Jake's name above. 
-
-<div id="chart" style="max-width:1000px"></div>
-
-
-
-The heatmap shows cases per capita, which I also include as a table below. 
-
-## Other Resources 
-
-
-
-
-
-
-<script type="module">
-
-// Load the Observable runtime and inspector.
-import {Runtime, Inspector, Library} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-
-const runtime = new Runtime(Object.assign(new Library, {width: 500}));
-const main = runtime.module(notebook, name => {
-  if (name === "skagitCaseChart") {
-    return new Inspector(document.querySelector("#skagitCaseChart"));
-  }
-  
- if (name === "SkagitDeathChart") {
-    return new Inspector(document.querySelector("#SkagitDeathChart"));
-  }
-  if(name === "SkagitHospitalChart"){
-    return new Inspector(document.querySelector("#SkagitHospitalChart"));
-  }
-});
-
-// Your notebook, compiled as an ES module.
-import notebook from "https://api.observablehq.com/@marshallbrown/covid-19-in-washington-state.js?v=3";
-
-
-</script>
-
-
-
-
-<script type="module">
-
-// Load the Observable runtime and inspector.
-import {Runtime, Inspector, Library} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-import notebook2 from "https://api.observablehq.com/@marshallbrown/covid-19-in-washington-state/2.js?v=3";
-
-const runtime2 = new Runtime(Object.assign(new Library, {width: 800}));
-const main2 = runtime2.module(notebook2, name => {
-  if (name === "chart") {
-    return new Inspector(document.querySelector("#chart"));
-  }
-  
-
-});
-
-// Your notebook, compiled as an ES module.
-
-
-</script>
-
+- [Updated data about covid-19 in Skagit Valley, WA](www.skagit.life/covid)

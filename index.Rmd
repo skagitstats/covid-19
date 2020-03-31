@@ -22,4 +22,4 @@ options(htmltools.dir.version = FALSE)
 
 # links 
 
-- [Updated data about covid-19 in Skagit Valley, WA](www.skagit.life/covid)
+- [Updated data about covid-19 in Skagit Valley, WA](/covid)

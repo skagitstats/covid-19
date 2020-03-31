@@ -16,9 +16,9 @@ localTime <- Sys.time()
 freshdata <- pub %>%
   html_node("body") %>% 
   html_nodes(".table1") %>% 
-  .[[3]] %>% 
+  .[[4]] %>% 
  #html_nodes("tbody") %>% 
-  rvest::html_table(fill = TRUE)  
+  rvest::html_table()  
   
 freshdata$DateStamp = ymd_hms(localTime)
 freshdata$News = NA

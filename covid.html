@@ -57,7 +57,11 @@ if (window.hljs) {
 
 <div id="section" class="section level2">
 <h2></h2>
-<p><span class="newthought">Total daily counts</span> of covid-19 cases, hospitalizations and deaths reported by <a href="https://www.skagitcounty.net/Departments/HealthDiseases/coronavirus.htm">Skagit Public Health</a>.</p>
+<p><span class="newthought">Total daily counts</span> of covid-19 cases, hospitalizations and deaths reported by <a href="https://www.skagitcounty.net/Departments/HealthDiseases/coronavirus.htm" target="_blank">Skagit Public Health</a>.</p>
+<ul>
+<li><p><em>Cases include total confirmed and presumptive positives, which means that a private lab reported a positive test.</em></p></li>
+<li><p><em>Hospitalized are people with positive tests who were hospitalized at any point during their illness.</em></p></li>
+</ul>
 <div id="skagitCaseChart" style="max-width:700px">
 
 </div>
@@ -67,58 +71,65 @@ if (window.hljs) {
 <div id="SkagitDeathChart" style="max-width:700px">
 
 </div>
+<div id="key-events" class="section level3">
+<h3>Key events</h3>
+<p><a href="https://www.goskagit.com/news/skagit-county-s-first-case-of-covid--confirmed/article_772a96af-8ab1-59aa-bb00-2b997d8b4073.html">The first case in Skagit Valley</a> was reported on March 10, 2020.</p>
+<p><a href="https://www.goskagit.com/news/local_news/skagit-county-schools-shutting-down/article_cb1da4b3-5d22-5396-97ad-9cc0907dd032.html">Schools where closed Tuesday, March 17</a></p>
 </div>
-<div id="washington-state" class="section level2">
-<h2>Washington State</h2>
-<p><a href="https://observablehq.com/@jake-low/covid-19-in-washington-state">Jake Low built this</a> visual with county level data.</p>
-<p>I tweaked his code to change up the colors<label for="tufte-sn-1" class="margin-toggle sidenote-number">1</label><input type="checkbox" id="tufte-sn-1" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">1</span> I’m sick of red.</span> and plugged in <a href="https://github.com/nytimes/covid-19-data">data curated by the new york times</a><label for="tufte-sn-2" class="margin-toggle sidenote-number">2</label><input type="checkbox" id="tufte-sn-2" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">2</span> The numbers are little different than reported from Skagit public health. Counting is hard.</span>, which looks like they collect from the <a href="https://www.doh.wa.gov/emergencies/coronavirus">Washington State Department of Health</a>.</p>
+</div>
+<div id="washington-state" class="section level1">
+<h1>Washington State</h1>
+<p><a href="https://observablehq.com/@jake-low/covid-19-in-washington-state" target="_blank">Jake Low built this</a> visual with county level data.</p>
+<p>I tweaked his code to change up the colors<label for="tufte-sn-1" class="margin-toggle sidenote-number">1</label><input type="checkbox" id="tufte-sn-1" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">1</span> I’m sick of red.</span> and plugged in <a href="https://github.com/nytimes/covid-19-data">data curated by the new york times</a><label for="tufte-sn-2" class="margin-toggle sidenote-number">2</label><input type="checkbox" id="tufte-sn-2" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">2</span> The numbers are little different than reported from Skagit public health. Counting is hard.</span>, which looks like they collect from the <a href="https://www.doh.wa.gov/emergencies/coronavirus" target="_blank">Washington State Department of Health</a>.</p>
 <p>The heatmap shows cases per capita, which is also included in the table below.</p>
+<blockquote>
+<p><em>(mobile users turn device for best viewing)</em></p>
+</blockquote>
 <div id="chart" style="max-width:1000px">
 
 </div>
-<div id="htmlwidget-4b4cf6889e75ed72873f" style="width:700px;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4b4cf6889e75ed72873f">{"x":{"filter":"none","data":[["Adams","Benton","Chelan","Clallam","Clark","Columbia","Cowlitz","Douglas","Ferry","Franklin","Grant","Grays Harbor","Island","Jefferson","King","Kitsap","Kittitas","Klickitat","Lewis","Lincoln","Mason","Okanogan","Pierce","San Juan","Skagit","Skamania","Snohomish","Spokane","Stevens","Thurston","Walla Walla","Whatcom","Whitman","Yakima"],["7","101","15","6","110","1","13","5","1","32","58","1","95","14","2,332","63","18","7","10","1","2","3","352","4","101","1","1,126","140","4","43","7","116","6","147"],[35,50,19,8,23,25,12,12,13,34,60,1,112,44,104,23,38,32,13,9,3,7,39,23,79,8,138,27,9,15,11,51,12,58],["0","5","2","0","6","0","0","0","0","0","1","0","1","0","152","1","0","1","0","0","0","0","6","0","3","0","30","4","0","0","0","7","0","3"],[0,2,3,0,1,0,0,0,0,0,1,0,1,0,7,0,0,5,0,0,0,0,1,0,2,0,4,1,0,0,0,3,0,1],["19,759","201,877","77,036","76,737","481,857","4,059","108,987","42,907","7,649","94,347","97,331","73,901","84,460","31,729","2,233,163","269,805","47,364","22,107","79,604","10,740","65,507","42,132","891,299","17,128","128,206","11,924","814,901","514,631","45,260","286,419","60,922","225,685","49,791","251,446"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>County<\/th>\n      <th>Total Cases<\/th>\n      <th>Cases per 100K<\/th>\n      <th>Total Deaths<\/th>\n      <th>Deaths per 100K<\/th>\n      <th>Population<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"order":[[2,"desc"]],"dom":"ftp","pageLength":10,"columnDefs":[{"className":"dt-right","targets":[2,4]}],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
-</div>
+<div id="htmlwidget-40ed7d9dabe5083e5223" style="width:700px;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-40ed7d9dabe5083e5223">{"x":{"filter":"none","data":[["Adams","Benton","Chelan","Clallam","Clark","Columbia","Cowlitz","Douglas","Ferry","Franklin","Grant","Grays Harbor","Island","Jefferson","King","Kitsap","Kittitas","Klickitat","Lewis","Lincoln","Mason","Okanogan","Pierce","San Juan","Skagit","Skamania","Snohomish","Spokane","Stevens","Thurston","Walla Walla","Whatcom","Whitman","Yakima"],["7","101","15","6","110","1","13","5","1","32","58","1","95","14","2,332","63","18","7","10","1","2","3","352","4","101","1","1,126","140","4","43","7","116","6","147"],[35,50,19,8,23,25,12,12,13,34,60,1,112,44,104,23,38,32,13,9,3,7,39,23,79,8,138,27,9,15,11,51,12,58],["0","5","2","0","6","0","0","0","0","0","1","0","1","0","152","1","0","1","0","0","0","0","6","0","3","0","30","4","0","0","0","7","0","3"],[0,2,3,0,1,0,0,0,0,0,1,0,1,0,7,0,0,5,0,0,0,0,1,0,2,0,4,1,0,0,0,3,0,1],["19,759","201,877","77,036","76,737","481,857","4,059","108,987","42,907","7,649","94,347","97,331","73,901","84,460","31,729","2,233,163","269,805","47,364","22,107","79,604","10,740","65,507","42,132","891,299","17,128","128,206","11,924","814,901","514,631","45,260","286,419","60,922","225,685","49,791","251,446"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>County<\/th>\n      <th>Total Cases<\/th>\n      <th>Cases per 100K<\/th>\n      <th>Total Deaths<\/th>\n      <th>Deaths per 100K<\/th>\n      <th>Population<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"order":[[2,"desc"]],"dom":"ftp","pageLength":10,"columnDefs":[{"className":"dt-right","targets":[2,4]}],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <div id="other-resources" class="section level2">
 <h2>Other Resources</h2>
 <div id="dashboards" class="section level3">
 <h3>Dashboards</h3>
 <ul>
-<li><p><a href="https://www.doh.wa.gov/emergencies/coronavirus">Washington State Department of Health</a>. Includes data on testing.</p></li>
-<li><p><a href="https://schnerd.github.io/us-covid-dashboard/">United States COVID-19 Tracker</a>. Very effective dashboard to compare US states.</p></li>
-<li><p><a href="https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6">Worldwide cases</a> from Johns Hopkins.</p></li>
-<li><p><a href="https://nextstrain.org/ncov">Genomic epidemiology of novel coronavirus at nextstrain</a>. Science!</p></li>
+<li><p><a href="https://www.doh.wa.gov/emergencies/coronavirus" target="_blank">Washington State Department of Health</a>. Includes data on testing.</p></li>
+<li><p><a href="https://schnerd.github.io/us-covid-dashboard/" target="_blank">United States COVID-19 Tracker</a>. Very effective dashboard to compare US states.</p></li>
+<li><p><a href="https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6" target="_blank">Worldwide cases</a> from Johns Hopkins.</p></li>
+<li><p><a href="https://nextstrain.org/ncov" target="_blank">Genomic epidemiology of novel coronavirus at nextstrain</a>. Science!</p></li>
 </ul>
 </div>
 <div id="blogs" class="section level3">
 <h3>Blogs</h3>
 <ul>
-<li><p><a href="https://www.ft.com/coronavirus-latest">Tracking covid-19 from the financial times</a>: Great article with lots of world wide data updated daily.</p></li>
-<li><p><a href="https://robjhyndman.com/hyndsight/forecasting-covid19/">What makes forecasting COVID-19 hard?</a></p></li>
-<li><p><a href="https://blogs.bmj.com/bmjgh/2020/03/24/sex-gender-and-covid-19-disaggregated-data-and-health-disparities/">Sex, gender and COVID-19: Disaggregated data and health disparities</a></p></li>
-<li><p>Trevor Bedfords blog: Latest post is <a href="https://bedford.io/blog/">Cryptic transmission of novel coronavirus revealed by genomic epidemiology</a>. <a href="https://twitter.com/trvrb">His twitter</a> is a great resource as well.</p></li>
+<li><p><a href="https://www.ft.com/coronavirus-latest" target="_blank">Tracking covid-19 from the financial times</a>. Great article with lots of world wide data updated daily.</p></li>
+<li><p><a href="https://robjhyndman.com/hyndsight/forecasting-covid19/" target="_blank">What makes forecasting COVID-19 hard?</a></p></li>
+<li><p><a href="https://blogs.bmj.com/bmjgh/2020/03/24/sex-gender-and-covid-19-disaggregated-data-and-health-disparities/" target="_blank">Sex, gender and COVID-19: Disaggregated data and health disparities</a></p></li>
+<li><p>Trevor Bedfords blog: Latest post is <a href="https://bedford.io/blog/" target="_blank">Cryptic transmission of novel coronavirus revealed by genomic epidemiology</a>. <a href="https://twitter.com/trvrb">His twitter</a> is a great resource as well.</p></li>
 </ul>
 </div>
 <div id="videos" class="section level3">
 <h3>Videos</h3>
 <ul>
-<li><a href="https://www.youtube.com/watch?v=54XLXg4fYsc">How To Tell If We’re Beating COVID-19 by minutephysics</a></li>
-<li><p><a href="https://observablehq.com/@yy/covid-19-confirmed-vs-new-cases">Interactive dashboard that replicates the one in the video.</a></p></li>
-<li><p><a href="https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw">Simulating and Epidemic</a> and <a href="https://www.youtube.com/watch?v=Kas0tIxDvrg">Exponential Growth and Epidemics</a> by 3Blue1Brown are great.</p></li>
-<li><p><a href="https://www.youtube.com/watch?v=2B-rYVWmqoI">March 19 Interview with David Ho about testing</a> : Dr. David Ho is Leading Four Research Teams to Find a Coronavirus Treatment | Amanpour and Company</p></li>
-<li><p><a href="https://www.pbs.org/newshour/health/watch-live-confronting-coronavirus-a-pbs-newshour-special">PBS newshour</a></p></li>
-<li><p><a href="https://www.youtube.com/watch?v=iNLiUN0l7ws">Bill Gates outlines what he thinks world is learning about pandemics</a></p></li>
-<li><p><a href="https://www.youtube.com/watch?v=bE68xVXf8Kw">Battling Coronavirus Inside a N.Y.C. Hospital | NYT News</a></p></li>
+<li><a href="https://www.youtube.com/watch?v=54XLXg4fYsc" target="_blank">How To Tell If We’re Beating COVID-19 by minutephysics</a></li>
+<li><p><a href="https://observablehq.com/@yy/covid-19-confirmed-vs-new-cases" target="_blank">Interactive dashboard that replicates the one in the video.</a></p></li>
+<li><p><a href="https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw" target="_blank">Simulating and Epidemic</a> and <a href="https://www.youtube.com/watch?v=Kas0tIxDvrg" target="_blank">Exponential Growth and Epidemics</a> by 3Blue1Brown are great.</p></li>
+<li><p><a href="https://www.youtube.com/watch?v=2B-rYVWmqoI" target="_blank">March 19 Interview with David Ho about testing</a>. Dr. David Ho is Leading Four Research Teams to Find a Coronavirus Treatment | Amanpour and Company</p></li>
+<li><p><a href="https://www.pbs.org/newshour/health/watch-live-confronting-coronavirus-a-pbs-newshour-special" target="_blank">PBS newshour coronavirus documentary</a></p></li>
+<li><p><a href="https://www.youtube.com/watch?v=iNLiUN0l7ws" target="_blank">Bill Gates outlines what he thinks world is learning about pandemics</a></p></li>
+<li><p><a href="https://www.youtube.com/watch?v=bE68xVXf8Kw" target="_blank">Battling Coronavirus Inside a N.Y.C. Hospital | NYT News</a></p></li>
 </ul>
 </div>
 <div id="other" class="section level3">
 <h3>Other</h3>
 <ul>
-<li><p><a href="https://github.com/skagitstats/covid-19">Github repo for this site</a></p></li>
+<li><p><a href="https://github.com/skagitstats/covid-19" target="_blank">Github repo for this site</a></p></li>
 <li>Observable reports where the charts above are generated
 <ol style="list-style-type: decimal">
-<li><a href="https://observablehq.com/@marshallbrown/covid-19-in-washington-state1">Skagit Valley Counts</a></li>
-<li><a href="https://observablehq.com/@marshallbrown/covid-19-in-washington-state/2">Map forked from Jake</a></li>
+<li><a href="https://observablehq.com/@marshallbrown/covid-19-in-washington-state1" target="_blank">Skagit Valley Counts</a></li>
+<li><a href="https://observablehq.com/@marshallbrown/covid-19-in-washington-state/2" target="_blank">Map forked from Jake</a></li>
 </ol></li>
 </ul>
 <script type="module">
@@ -164,6 +175,7 @@ const main2 = runtime2.module(notebook2, name => {
 
 
 </script>
+</div>
 </div>
 </div>
 

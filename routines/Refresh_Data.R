@@ -20,7 +20,7 @@ freshdata <- pub %>%
  #html_nodes("tbody") %>% 
   rvest::html_table()  
   
-freshdata$DateStamp = ymd_hms(localTime)
+freshdata$DateStamp = Sys.Date() -1 
 freshdata$News = NA
 
 pastData = read_csv("data/skagit_valley_covid_counts.csv", 

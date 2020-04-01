@@ -31,10 +31,6 @@ pop <- read_csv("data/populations.csv")
 `r newthought('Total daily counts')` of covid-19 cases, hospitalizations and deaths reported by [Skagit Public Health](https://www.skagitcounty.net/Departments/HealthDiseases/coronavirus.htm){target="_blank"}. 
 
 
- - *Cases include total confirmed and presumptive positives, which means that a private lab reported a positive test.*
-
- - *Hospitalized are people with positive tests who were hospitalized at any point during their illness.*
-
 
 <div id="skagitCaseChart" style="max-width:700px" ></div>
 
@@ -45,8 +41,13 @@ pop <- read_csv("data/populations.csv")
 
 <div id="SkagitDeathChart" style="max-width:700px"></div>
 
+ - *Cases include total confirmed and presumptive positives, which means that a private lab reported a positive test.*
 
-### Key events 
+ - *Hospitalized are people with positive tests who were hospitalized at any point during their illness.*
+
+
+
+## Key events 
 
 [The first case in Skagit Valley](https://www.goskagit.com/news/skagit-county-s-first-case-of-covid--confirmed/article_772a96af-8ab1-59aa-bb00-2b997d8b4073.html) was reported on March 10, 2020. 
 
@@ -66,8 +67,7 @@ The heatmap shows cases per capita, which is also included in the table below.
 > _(mobile users turn device for best viewing)_
 
 
-<div id="chart" style="max-width:1000px"></div>
-
+<div id="chart" style="max-width:900px"></div>
 
  
 

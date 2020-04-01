@@ -1,10 +1,16 @@
 ---
-title: "Covid-19 in Skagit Valley, WA"
-date: "`r Sys.Date()`"
+title: "A clean and uncluttered template"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+mail: "marshalldanielbrown@gmail.com"
+linkedin: "marshall-d-brown"
+twitter: "Bignumbersbrown"
+# !!! You need to provide a logo image here !!! Or just delete the field for no logo
+logo: "logo8.png"
 output:
-  tufte::tufte_html: default
-bibliography: skeleton.bib
-link-citations: yes
+  epuRate::epurate:
+    toc: TRUE
+    number_sections: FALSE
+    code_folding: "none"
 ---
 
 ```{r setup, include=FALSE}
@@ -21,14 +27,14 @@ options(htmltools.dir.version = FALSE, warnings = 'hide', messages= 'hide')
 
 dat <- read_csv('https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv')
 
-pop <- read_csv("data/populations.csv")
+pop <- read_csv("../data/populations.csv")
 
 ```
 
 
 ## 
 
-`r newthought('Total daily counts')` of covid-19 cases, hospitalizations and deaths reported by [Skagit Public Health](https://www.skagitcounty.net/Departments/HealthDiseases/coronavirus.htm){target="_blank"}. 
+Total daily counts of covid-19 cases, hospitalizations and deaths reported by [Skagit Public Health](https://www.skagitcounty.net/Departments/HealthDiseases/coronavirus.htm){target="_blank"}. 
 
 
 
@@ -64,8 +70,6 @@ I tweaked his code to change up the colors^[I'm sick of red.] and plugged in [ d
 
 The heatmap shows cases per capita, which is also included in the table below. 
 
-> _(mobile users turn device for best viewing)_
-
 
 <div id="chart" style="max-width:900px"></div>
 
@@ -89,7 +93,7 @@ dat %>% as_tibble() %>%
          `Deaths per 100K`, 
          Population = scales::comma(Population)
          ) %>% 
-  datatable(width = '700px', 
+  datatable(width = '80%', 
             rownames= FALSE, 
             options = list(scrollX = TRUE,
                            order = list(list(2, 'desc')), 

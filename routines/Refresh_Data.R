@@ -20,10 +20,10 @@ freshdata <- pub %>%
  #html_nodes("tbody") %>% 
   rvest::html_table()  
   
-freshdata$DateStamp = today()  - hours(8) 
+freshdata$DateStamp = Sys.time()  - hours(8)
 freshdata$News = NA
 
-pastData = read_csv("data/skagit_valley_covid_counts.csv", 
+pastData = read_csv("../data/skagit_valley_covid_counts.csv", 
                       col_types  = cols(Date = col_datetime(format = ""),
                                         Cases = col_double(),
                                         Deaths = col_double(),
@@ -42,9 +42,11 @@ newData <- rbind(
          News,
          county))
 
+
+tail(newData)
 newData$Hospitalized[is.na(newData$Hospitalized)] <- 0 
 
 newData %>% transmute(Date = as_date(Date), Cases, Deaths, Hospitalized, News, county  ="Skagit") %>% distinct()  %>% 
-write_csv(path = "data/skagit_valley_covid_counts.csv")
+write_csv(path = "../data/skagit_valley_covid_counts.csv")
 
 

@@ -2,9 +2,6 @@
 title: "Covid-19 in Skagit Valley, WA"
 date: "`r Sys.Date()`"
 output:
-  html: 
-    includes: 
-     
   tufte::tufte_html: default
 bibliography: skeleton.bib
 link-citations: yes
@@ -74,7 +71,7 @@ dat %>% as_tibble() %>%
          `Deaths per 100K`, 
          Population = scales::comma(Population)
          ) %>% 
-  datatable(width = '80%', 
+  datatable(width = '700px', 
             rownames= FALSE, 
             options = list(scrollX = TRUE,
                            order = list(list(2, 'desc')), 

@@ -46,7 +46,14 @@ newData <- rbind(
 tail(newData)
 newData$Hospitalized[is.na(newData$Hospitalized)] <- 0 
 
-newData %>% transmute(Date = as_date(Date), Cases, Deaths, Hospitalized, News, county  ="Skagit") %>% distinct()  %>% 
+
+
+newData %>%
+  transmute(Date = as_date(Date), Cases, Deaths, Hospitalized, News, county  ="Skagit") %>%
+  mutate(newCases = Cases - lag(Cases, 1),
+         newDeaths = Deaths - lag(Deaths, 1), 
+         NewHosp=  Hospitalized - lag(Hospitalized, 1)) %>% 
+  distinct()  %>% 
 write_csv(path = "../data/skagit_valley_covid_counts.csv")
 
 

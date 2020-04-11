@@ -28,28 +28,37 @@ pastData = read_csv("../data/skagit_valley_covid_counts.csv",
                                         Cases = col_double(),
                                         Deaths = col_double(),
                                         Hospitalized = col_double(),
+                                        Recovered  = col_double(), 
                                         News = col_character())) 
 
 freshdata$county = "Skagit"
 
 newData <- rbind(
-  pastData, 
+  select(pastData,
+         Date , 
+         Cases , 
+         Deaths , 
+         Hospitalized ,
+         Recovered, 
+         News,
+         county), 
   select(freshdata,
          Date =  DateStamp, 
          Cases = `Positive*`, 
          Deaths = Deaths, 
          Hospitalized = `Hospitalized**`,
+         Recovered = `Recovered`, 
          News,
          county))
 
 
 tail(newData)
 newData$Hospitalized[is.na(newData$Hospitalized)] <- 0 
-
+newData$Recovered[is.na(newData$Recovered)] <- 0
 
 
 newData %>%
-  transmute(Date = as_date(Date), Cases, Deaths, Hospitalized, News, county  ="Skagit") %>%
+  transmute(Date = as_date(Date), Cases, Deaths, Hospitalized, Recovered, News, county  ="Skagit") %>%
   mutate(newCases = Cases - lag(Cases, 1),
          newDeaths = Deaths - lag(Deaths, 1), 
          NewHosp=  Hospitalized - lag(Hospitalized, 1)) %>% 

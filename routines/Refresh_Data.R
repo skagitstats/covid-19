@@ -61,7 +61,9 @@ newData %>%
   transmute(Date = as_date(Date), Cases, Deaths, Hospitalized, Recovered, News, county  ="Skagit") %>%
   mutate(newCases = Cases - lag(Cases, 1),
          newDeaths = Deaths - lag(Deaths, 1), 
-         NewHosp=  Hospitalized - lag(Hospitalized, 1)) %>% 
+         NewHosp=  Hospitalized - lag(Hospitalized, 1), 
+         newRecov = Recovered - lag(Recovered, 1), 
+         nonRecov = Cases - Recovered ) %>% 
   distinct()  %>% 
 write_csv(path = "../data/skagit_valley_covid_counts.csv")
 

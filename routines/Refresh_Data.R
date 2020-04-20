@@ -16,7 +16,7 @@ localTime <- Sys.time()
 freshdata <- pub %>%
   html_node("body") %>% 
   html_nodes(".table1") %>% 
-  .[[4]] %>% 
+  .[[3]] %>% 
  #html_nodes("tbody") %>% 
   rvest::html_table()  
   

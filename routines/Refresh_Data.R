@@ -8,6 +8,7 @@ library(rvest)
 library(dplyr)
 library(tidyr)
 library(lubridate)
+
 pub <- read_html( "https://www.skagitcounty.net/Departments/HealthDiseases/coronavirus.htm")
 
 localTime <- Sys.time()

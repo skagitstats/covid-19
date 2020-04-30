@@ -47,3 +47,4 @@ Date,Cases,Deaths,Hospitalized,Recovered,News,county,newCases,newDeaths,NewHosp,
 2020-04-25,293,9,39,112,NA,Skagit,8,0,0,0,181
 2020-04-26,304,10,40,112,NA,Skagit,11,1,1,0,192
 2020-04-28,321,12,41,126,NA,Skagit,17,2,1,14,195
+2020-04-29,327,13,42,128,NA,Skagit,6,1,1,2,199
